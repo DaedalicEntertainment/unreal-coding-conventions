@@ -181,7 +181,7 @@ Within each of these groups, order members by name or logical groups.
 
 9.1. __DO__ use four spaces for indentation.
 
-9.2. __DO__ use a single space after a keyword and before a curly brace.
+9.2. __DO__ use a single space after a keyword and before a parenthesis.
 
       // Right:
       if (bVisible)

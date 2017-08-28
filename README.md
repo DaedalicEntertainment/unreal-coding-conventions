@@ -60,7 +60,7 @@ Within each of these groups, order members by name or logical groups.
 
 ## 3. Includes
 
-3.1. __DO__ not include unused headers. This will generally help reduce the compilation time, especially for developers when just one header has been modified. It may also avoid errors that can be caused by conflicts between headers. If an object in the class is only used by pointer or by reference, it is not required to include the header for that object. Instead, just add a forward declaration before the class. 
+3.1. __DO NOT__ include unused headers. This will generally help reduce the compilation time, especially for developers when just one header has been modified. It may also avoid errors that can be caused by conflicts between headers. If an object in the class is only used by pointer or by reference, it is not required to include the header for that object. Instead, just add a forward declaration before the class. 
 
 3.2. __DO NOT__ rely on a header that is included indirectly by another header you include.
 
@@ -85,9 +85,9 @@ Within each of these groups, order members by name or logical groups.
 
 4.5. __DO__ add a virtual destructor to classes with virtual member functions.
 
-4.6. __DO__ marks classes that are not meant to be derived from as `final`. This should be the default for non-interface classes. Care has to be taken when removing the `final` keyword from a class when inheritance is required. Classes that are already derived don't need to be marked as `final` by default: In the most common case there is no reason to prevent further inheritance.
+4.6. __DO__ mark classes that are not meant to be derived from as `final`. This should be the default for non-interface classes. Care has to be taken when removing the `final` keyword from a class when inheritance is required. Classes that are already derived don't need to be marked as `final` by default: In the most common case there is no reason to prevent further inheritance.
 
-4.7. __DO__ use a non-virtual destructor in `final` classes have unless they are already derived.
+4.7. __DO__ use a non-virtual destructor in `final` classes unless they are already derived.
 
 4.8. __DO__ use `struct`s for data containers, only. They shouldn't contain any business logic beyond simple validation or need any destructors.
 
@@ -195,7 +195,7 @@ Within each of these groups, order members by name or logical groups.
 
 9.3. __DO__ surround binary operators with spaces.
 
-9.4. __DO NOT__ not put multiple statements on one line.
+9.4. __DO NOT__ put multiple statements on one line.
 
 
 ## 10. Line Breaks

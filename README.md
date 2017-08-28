@@ -205,7 +205,8 @@ Within each of these groups, order members by name or logical groups.
 10.2. __DO__ use a new line for the body of a control flow statement:
 
       // Right:
-      if (bVisible) {
+      if (bVisible)
+      {
           Hide();
       }
 
@@ -217,13 +218,15 @@ Within each of these groups, order members by name or logical groups.
       // Right:
       if (longExpression
           + otherLongExpression
-          + otherOtherLongExpression) {
+          + otherOtherLongExpression)
+      {
       }
 
       // Wrong: Operator at the end of the line is easy to miss if the editor is too narrow.
       if (longExpression +
           otherLongExpression +
-          otherOtherLongExpression) {
+          otherOtherLongExpression)
+      {
       }
 
 
@@ -290,7 +293,8 @@ Within each of these groups, order members by name or logical groups.
 
 13.1. __DO__ add a `break` (or `return`) statement at the end of every `case`, or a comment to indicate that there's intentionally no `break`, unless another `case` follows immediately within switch statements
 
-      switch (MyEnumValue) {
+      switch (MyEnumValue)
+      {
         case Value1:
             DoSomething();
             break;

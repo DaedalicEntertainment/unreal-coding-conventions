@@ -1,4 +1,4 @@
-# Unreal 4 Coding Conventions
+# Unreal 4 Coding Conventions 1.0
 
 This document summarizes the high-level coding conventions for writing Unreal 4 client code at Daedalic Entertainment. They are based on the official Unreal Coding Standard:
 

@@ -352,16 +352,42 @@ Within each of these groups, order members by name or logical groups.
 
 14.4. __DO__ use the `TEXT()` macro around string literals. Without it, code which constructs `FString`s from literals will cause an undesirable string conversion process. 
 
+## 15. Events & Delegates
 
-## 15. Comments
+15.1. __CONSIDER__ exposing meaningful events to subclasses and/or other interested listeners by defining virtual functions and/or multicast delegates.
 
-15.1. __DO__ add a space after `//`.
+15.2. __DO__ define two functions when exposing an event to a subclass. The first function should be virtual and its name should begin with `Notify`. The second function should be a `BlueprintImplementableEvent UFUNCTION` and its name should begin with `Receive`. The default implementation of the virtual function should be to call the `BlueprintImplementableEvent` function (see `AActor::NotifyActorBeginOverlap` and `AActor::ReceiveActorBeginOverlap` for example).
 
-15.2. __DO__ place the comment on a separate line, not at the end of a line of code.
+15.3. __DO__ call the virtual function before broadcasting the event, if both are defined (see `UPrimitiveComponent::BeginComponentOverlap` for example).
 
-15.3. __DO__ write API documentation with [Javadoc comments](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/index.html#exampleformatting).
+Example:
+
+    /** Event when the connectivity of an observed source vertex has changed. */
+    virtual void NotifyOnConnectivityChanged(AActor* Source, AActor* Target, float Distance);
+
+    /** Event when the connectivity of an observed source vertex has changed. */
+    UFUNCTION(BlueprintImplementableEvent, Category = Graph, meta = (DisplayName = "OnConnectivityChanged"))
+    void ReceiveOnConnectivityChanged(AActor* Source, AActor* Target, float Distance);
 
 
-## 16. Additional Naming Conventions
+    void AHoatActorGraph::NotifyOnConnectivityChanged(AActor* Source, AActor* Target, float Distance)
+    {
+    ReceiveOnConnectivityChanged(Source, Target, Distance);
+    OnConnectivityChanged.Broadcast(Source, Target, Distance);
 
-16.1. __DO NOT__ use any swearing in symbol names, comments or log output.
+    HOAT_LOG(hoat, Log, TEXT("%s changed the connectivity of vertex %s: Distance to target %s changed to %f."),
+            *GetName(), *Source->GetName(), *Target->GetName(), Distance);
+    }
+
+## 16. Comments
+
+16.1. __DO__ add a space after `//`.
+
+16.2. __DO__ place the comment on a separate line, not at the end of a line of code.
+
+16.3. __DO__ write API documentation with [Javadoc comments](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/index.html#exampleformatting).
+
+
+## 17. Additional Naming Conventions
+
+17.1. __DO NOT__ use any swearing in symbol names, comments or log output.

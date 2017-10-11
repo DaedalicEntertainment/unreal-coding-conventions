@@ -353,15 +353,15 @@ Within each of these groups, order members by name or logical groups.
 14.4. __DO__ use the `TEXT()` macro around string literals. Without it, code which constructs `FString`s from literals will cause an undesirable string conversion process. 
 
 
-## 16. Comments
+## 15. Comments
 
-16.1. __DO__ add a space after `//`.
+15.1. __DO__ add a space after `//`.
 
-16.2. __DO__ place the comment on a separate line, not at the end of a line of code.
+15.2. __DO__ place the comment on a separate line, not at the end of a line of code.
 
-16.3. __DO__ write API documentation with [Javadoc comments](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/index.html#exampleformatting).
+15.3. __DO__ write API documentation with [Javadoc comments](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/index.html#exampleformatting).
 
 
-## 17. Additional Naming Conventions
+## 16. Additional Naming Conventions
 
-17.1. __DO NOT__ use any swearing in symbol names, comments or log output.
+16.1. __DO NOT__ use any swearing in symbol names, comments or log output.

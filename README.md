@@ -362,12 +362,18 @@ Within each of these groups, order members by name or logical groups.
 
 Example:
 
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FHoatActorGraphConnectivityChangedSignature, AActor*, Source, AActor*, Target, float, Distance);
+
     /** Event when the connectivity of an observed source vertex has changed. */
     virtual void NotifyOnConnectivityChanged(AActor* Source, AActor* Target, float Distance);
 
     /** Event when the connectivity of an observed source vertex has changed. */
     UFUNCTION(BlueprintImplementableEvent, Category = Graph, meta = (DisplayName = "OnConnectivityChanged"))
     void ReceiveOnConnectivityChanged(AActor* Source, AActor* Target, float Distance);
+
+    /** Event when the connectivity of an observed source vertex has changed. */
+    UPROPERTY(BlueprintAssignable)
+    FHoatActorGraphConnectivityChangedSignature OnConnectivityChanged;
 
 
     void AHoatActorGraph::NotifyOnConnectivityChanged(AActor* Source, AActor* Target, float Distance)

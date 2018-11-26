@@ -172,9 +172,19 @@ Within each of these groups, order members by name or logical groups.
 
 ## 8. Enums & Constants
 
-8.1. __CONSIDER__ using `enum class` over `static constexpr` over `static const` variables over `#define` when defining constants.
+8.1. __DO__ use `[static] constexpr` for defining single compile-time constants.
 
-8.2. __DO__ use ALL_CAPS with underscores between words for constant names.
+8.2. __DO__ use `enum [class]` for defining multiple related compile-time constants.
+
+8.3. __DO__ use `[static] const` for defining runtime constants where a compile-time constant doesn't work.
+
+8.4. __DO__ use `#define` for defining compile-time constants which are used for conditional compilation using the preprocessor or if they have to be specified by the build system.
+
+8.5. __DO__ use `enum class` instead of plain `enum` if possible.
+
+8.6. __DO__ use PascalCase for compile-time and runtime constants and enumerator names.
+
+8.7. __DO__ use ALL_CAPS with underscores between words for `#define` names.
 
 
 ## 9. Indentation & Whitespaces
